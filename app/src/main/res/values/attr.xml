@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="MyTextView">
+        <attr name="aller_bd" format="string">aller_Bd.ttf</attr>
+        <attr name="aller_bdlt" format="string">aller_BdIt.ttf</attr>
+        <attr name="aller_Lt" format="string">aller_Lt.ttf</attr>
+        <attr name="aller_Ltlt" format="string">aller_LtIt.ttf</attr>
+        <attr name="aller_rg" format="string">aller_Rg.ttf</attr>
+    </declare-styleable>
+</resources>
