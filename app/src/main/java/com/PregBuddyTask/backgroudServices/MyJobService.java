@@ -29,6 +29,7 @@ public class MyJobService extends JobService {
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
 
+        // Start the Job if the thelocal data is more than 0
         List<NotificationTips> notificationTips = NotificationTips.listAll(NotificationTips.class);
         Log.e("job seervice", String.valueOf(notificationTips.size()));
 
