@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">PregBuddyTask</string>
     <string name="title_activity_sign_up">SignUp</string>
+
+    <!--login screen activity text-->
+    <string name="login_text1">Welcome good to see you</string>
+    <string name="log_in">Log In</string>
+    <string name="enter_user_name">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="create_account">Create An account?</string>
+
+    <!--login screen activity text-->
+
+
+    <!--signup Screen Activity text-->
+    <string name="signup_text">Create An Account</string>
+    <string name="signup">Sign Up </string>
+    <string name="have_account">Have account ? login</string>
+
+
+    <!--signup Screen Activity text-->
 </resources>

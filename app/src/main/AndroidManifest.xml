@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activites.LoginActivity"
-            >
+            android:screenOrientation="portrait">
 
 
             <intent-filter>
@@ -26,7 +26,8 @@
         <activity
             android:name=".activites.SignUp"
             android:label="@string/title_activity_sign_up"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
