@@ -12,6 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <service
+            android:name=".backgroudServices.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".activites.LoginActivity"
             android:screenOrientation="portrait">
@@ -26,7 +35,11 @@
             android:label="@string/title_activity_sign_up"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activites.SuccessSceern"></activity>
+        <activity
+            android:name=".activites.SuccessSceern"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".backgroudServices.NotificationReciver" />
     </application>
 
 </manifest>

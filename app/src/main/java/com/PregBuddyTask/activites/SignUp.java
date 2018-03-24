@@ -113,6 +113,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()) {
 
             case R.id.signup_signupBtn:
+                // calling the webservice for signup after validation
 
 
                 if (validatesignup()) {
@@ -159,6 +160,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
 
                     if (response.body().getApiresult() == 0) {
+                        // on sucess call back procede to next actvity
 
                         Intent successResponse = new Intent(SignUp.this, SuccessSceern.class);
                         startActivity(successResponse);

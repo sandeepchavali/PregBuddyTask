@@ -88,9 +88,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
 
             case R.id.loginBtn:
+                // calling the webservice for login after validation
 
                 if (validateLogin()) {
-
                     if (isNetworkAvailable(LoginActivity.this)) {
                         showProgressBar();
                         LoginCallWs(username, password);
@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.signupBtn:
+                // calling then signup actiivity
                 Intent signup = new Intent(LoginActivity.this, SignUp.class);
                 startActivity(signup);
                 break;
@@ -151,9 +152,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                     if (response.body().getApiresult() == 0) {
+                        // on sucess call back procede to next actvity
 
                         Intent successResponse = new Intent(LoginActivity.this, SuccessSceern.class);
                         startActivity(successResponse);
+
                     }
                 }
 
