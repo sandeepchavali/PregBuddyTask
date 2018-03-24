@@ -12,8 +12,6 @@ import com.PregBuddyTask.modelList.retrofitClient.ormModel.NotificationTips;
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,11 +32,20 @@ public class MyJobService extends JobService {
         Log.e("job seervice", String.valueOf(notificationTips.size()));
 
         if (notificationTips.size() != 0) {
-            String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-            Log.e(TAG, currentDateTimeString);
 
 
-            createNotification(currentDateTimeString, currentDateTimeString);
+
+            NotificationTips tips = NotificationTips.findById(NotificationTips.class, notificationTips.size());
+
+            String title = tips.getTitle();
+            String data = tips.getData();
+
+
+            createNotification(title, data);
+
+            tips.delete();
+
+
         }
 
         return false;
