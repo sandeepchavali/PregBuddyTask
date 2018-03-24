@@ -59,6 +59,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         inti();
         loginBtn.setOnClickListener(this);
         signupBtn.setOnClickListener(this);
+
+
     }
 
     public void inti() {
@@ -195,4 +197,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mProgressView.setVisibility(View.GONE);
         }
     }
+
 }

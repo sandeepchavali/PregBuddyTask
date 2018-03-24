@@ -40,6 +40,14 @@
             android:screenOrientation="portrait" />
 
         <receiver android:name=".backgroudServices.NotificationReciver" />
+
+        <!--Sugar orm meta data files-->
+        <meta-data android:name="DATABASE" android:value="prebuddy_tips.db" />
+        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.PregBuddyTask" />
+        <!--Sugar orm meta data files-->
+
     </application>
 
 </manifest>

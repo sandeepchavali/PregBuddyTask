@@ -39,4 +39,6 @@ dependencies {
     //firebase JobDispacther
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
 
+    //Libary for the Surgar ORM (Database)
+    compile 'com.github.satyan:sugar:1.4'
 }
