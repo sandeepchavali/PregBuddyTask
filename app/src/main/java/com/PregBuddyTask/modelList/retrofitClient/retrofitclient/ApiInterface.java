@@ -1,5 +1,6 @@
 package com.PregBuddyTask.modelList.retrofitClient.retrofitclient;
 
+import com.PregBuddyTask.modelList.retrofitClient.pojo.Signupmodel.SignupModel;
 import com.PregBuddyTask.modelList.retrofitClient.pojo.Signupmodel.signinModel.SigninModel;
 
 import retrofit2.Call;
@@ -20,5 +21,14 @@ public interface ApiInterface {
     Call<SigninModel> callLogin(@Query("apikey") String apikey,
                                 @Field("username") String username,
                                 @Field("password") String password);
+
+
+    @FormUrlEncoded
+    @POST("register/json")
+    Call<SignupModel> callSignup(@Query("apikey") String apikey,
+                                 @Field("email") String username,
+                                 @Field("password") String password);
+
+
 }
 

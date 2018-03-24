@@ -1,8 +1,10 @@
 package com.PregBuddyTask.activites;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -10,8 +12,11 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.PregBuddyTask.R;
@@ -30,6 +35,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText username_et, userpassword_et;
     TextInputLayout username_il, userpassword_il;
     String username, password, APIKEY;
+    private Dialog dialog;
+    private ProgressBar mProgressView;
+
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context
@@ -84,6 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (validateLogin()) {
 
                     if (isNetworkAvailable(LoginActivity.this)) {
+                        showProgressBar();
                         LoginCallWs(username, password);
 
                     } else {
@@ -135,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginws.enqueue(new Callback<SigninModel>() {
             @Override
             public void onResponse(Call<SigninModel> call, Response<SigninModel> response) {
-
+                hideProgress();
                 if (response.isSuccessful()) {
                     Log.e("get api result", String.valueOf(response.body().getApiresult()));
                     Toast.makeText(getApplicationContext(), response.body().getApimessage(), Toast.LENGTH_LONG).show();
@@ -152,11 +161,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onFailure(Call<SigninModel> call, Throwable t) {
+                hideProgress();
                 Toast.makeText(getApplicationContext(), getString(R.string.faliure_message), Toast.LENGTH_LONG).show();
 
             }
         });
 
 
+    }
+
+
+    private void showProgressBar() {
+
+        dialog = new Dialog(LoginActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setContentView(R.layout.activity_progressbar_layout);
+        dialog.setCancelable(false);
+        mProgressView = (ProgressBar) dialog.findViewById(R.id.progress_dialog);
+        mProgressView.setVisibility(View.VISIBLE);
+        dialog.show();
+
+    }
+
+    private void hideProgress() {
+
+        if ((dialog != null) && dialog.isShowing()) {
+            dialog.dismiss();
+            mProgressView.setVisibility(View.GONE);
+        }
     }
 }
