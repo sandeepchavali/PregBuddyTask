@@ -19,12 +19,7 @@ public class SigninModel {
     @SerializedName("apimessage")
     @Expose
     private String apimessage;
-    @SerializedName("totalcount")
-    @Expose
-    private Object totalcount;
-    @SerializedName("count")
-    @Expose
-    private Object count;
+
 
     public SinguinApivalue getApivalue() {
         return apivalue;
@@ -50,19 +45,5 @@ public class SigninModel {
         this.apimessage = apimessage;
     }
 
-    public Object getTotalcount() {
-        return totalcount;
-    }
 
-    public void setTotalcount(Object totalcount) {
-        this.totalcount = totalcount;
-    }
-
-    public Object getCount() {
-        return count;
-    }
-
-    public void setCount(Object count) {
-        this.count = count;
-    }
 }

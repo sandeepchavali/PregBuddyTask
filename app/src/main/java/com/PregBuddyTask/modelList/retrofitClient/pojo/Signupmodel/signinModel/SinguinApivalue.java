@@ -14,7 +14,7 @@ public class SinguinApivalue {
     private Integer usergroup;
     @SerializedName("session_expires_at")
     @Expose
-    private Integer sessionExpiresAt;
+    private Long sessionExpiresAt;
     @SerializedName("sessionid")
     @Expose
     private String sessionid;
@@ -39,11 +39,11 @@ public class SinguinApivalue {
         this.usergroup = usergroup;
     }
 
-    public Integer getSessionExpiresAt() {
+    public Long getSessionExpiresAt() {
         return sessionExpiresAt;
     }
 
-    public void setSessionExpiresAt(Integer sessionExpiresAt) {
+    public void setSessionExpiresAt(Long sessionExpiresAt) {
         this.sessionExpiresAt = sessionExpiresAt;
     }
 

@@ -8,7 +8,6 @@
     <string name="enter_user_name">Enter Username</string>
     <string name="enter_password">Enter Password</string>
     <string name="create_account">Create An account?</string>
-
     <!--login screen activity text-->
 
 
@@ -16,7 +15,17 @@
     <string name="signup_text">Create An Account</string>
     <string name="signup">Sign Up </string>
     <string name="have_account">Have account ? login</string>
-
-
     <!--signup Screen Activity text-->
+
+
+    <!--API RESPONSE RESULT-->
+
+    <string name="login_succ_msg">Login Successful</string>
+    <string name="login_un_successful_msg">Login is not Successful</string>
+    <string name="faliure_message">Unable to connect. Try again Later</string>
+    <string name="no_connection">Check your internet connection</string>
+
+    <!--API RESPONSE RESULT-->
+
+
 </resources>
