@@ -8,11 +8,13 @@ import android.util.Log;
 
 import com.PregBuddyTask.R;
 import com.PregBuddyTask.activites.LoginActivity;
+import com.PregBuddyTask.modelList.retrofitClient.ormModel.NotificationTips;
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by chavali on 2018-03-24.
@@ -26,9 +28,18 @@ public class MyJobService extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-        Log.e(TAG, currentDateTimeString);
-        createNotification(currentDateTimeString, currentDateTimeString);
+
+        List<NotificationTips> notificationTips = NotificationTips.listAll(NotificationTips.class);
+        Log.e("job seervice", String.valueOf(notificationTips.size()));
+
+        if (notificationTips.size() != 0) {
+            String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+            Log.e(TAG, currentDateTimeString);
+
+
+            createNotification(currentDateTimeString, currentDateTimeString);
+        }
+
         return false;
     }
 

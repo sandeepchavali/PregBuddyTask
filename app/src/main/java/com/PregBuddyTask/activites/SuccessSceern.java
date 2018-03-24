@@ -63,15 +63,15 @@ public class SuccessSceern extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+            List<NotificationTips> notificationTips2 = NotificationTips.listAll(NotificationTips.class);
+            Log.e("notificationTips 2", String.valueOf(notificationTips2.size()));
 
+            // to intilazie the job dispacther
+            mDispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+            // Start Schedule Job
+            scheduleJob();
         }
-        List<NotificationTips> notificationTips2 = NotificationTips.listAll(NotificationTips.class);
-        Log.e("notificationTips 2", String.valueOf(notificationTips2.size()));
 
-        // to intilazie the job dispacther
-        mDispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
-        // Start Schedule Job
-        scheduleJob();
     }
 
     private void scheduleJob() {
